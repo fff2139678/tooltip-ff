@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Fragment} from 'react';
 
-import ToolTip from './';
-// import ToolTip from 'tooltip-ff';
+// import ToolTip from './';
+import ToolTip from 'tooltip-ff';
 
 const parentStyle = {
   display: 'flex',
