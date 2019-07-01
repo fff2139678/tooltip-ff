@@ -1,1 +1,2 @@
-export {default as ToolTip} from './components/tooltip';
+import ToolTip from './components/tooltip';
+export default ToolTip;

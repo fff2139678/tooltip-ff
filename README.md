@@ -23,18 +23,18 @@ ReactDOM.render (
 
 ## API
 
-| 参数     | 说明                                                                                  | 类型                               | 默认    |
-| -------- | ------------------------------------------------------------------------------------- | ---------------------------------- | ------- |
-| position | 气泡框位置，可选`top`,`tl`,`tr`,`left`,`lt`,`lb`,`right`,`rt`,`rb`,`bottom`,`bl`,`br` | string                             | `right` |
-| content  | 气泡展示内容                                                                          | `string/ReactNode/() => ReactNode` | 无      |
-| trigger  | 触发行为，可选`hover`,`click`                                                                         | string | `hover`      |
-| defaultVisible  | 默认是否显隐                                                                         | `boolean` | false  |
-| mouseEnter  | 显视回调                                                                          | `() => void` | 无  |
-| mouseLeave  | 隐藏回调                                                                          | `() => void` | 无  |
-| click  | 点击回调                                                                          | `() => void` | 无  |
-
+| 参数           | 说明                                                                                  | 类型                               | 默认    |
+| -------------- | ------------------------------------------------------------------------------------- | ---------------------------------- | ------- |
+| position       | 气泡框位置，可选`top`,`tl`,`tr`,`left`,`lt`,`lb`,`right`,`rt`,`rb`,`bottom`,`bl`,`br` | string                             | `right` |
+| content        | 气泡展示内容                                                                          | `string/ReactNode/() => ReactNode` | 无      |
+| trigger        | 触发行为，可选`hover`,`click`                                                         | string                             | `hover` |
+| defaultVisible | 默认是否显隐                                                                          | `boolean`                          | false   |
+| mouseEnter     | 鼠标移入回调                                                                          | `() => void`                       | 无      |
+| mouseLeave     | 鼠标移出回调                                                                          | `() => void`                       | 无      |
+| click          | 点击回调                                                                              | `() => void`                       | 无      |
 
 ## demo
+
 ```
 npm install
 
