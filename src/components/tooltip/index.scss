@@ -60,6 +60,8 @@ $border-6: 6px solid $tip-color;
     }
     .content {
         cursor: pointer;
+    }
+    .active {
         &:hover {
             &+.box {
                 opacity: 1;
@@ -79,6 +81,9 @@ $border-6: 6px solid $tip-color;
         line-height: 0.14rem;
         opacity: 0;
         transition: opacity 1s;
+    }
+    .visible {
+        opacity: 1;
     }
     .box-top,
     .box-tl,

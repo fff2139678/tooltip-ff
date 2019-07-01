@@ -25,7 +25,29 @@ class ToolTip extends React.Component {
         ? this.props.position
         : 'right',
       content: this.props.content,
+      isVisible: this.props.defaultVisible,
+      trigger: this.props.trigger,
     };
+  }
+
+  mouseEnter () {
+    this.props.mouseEnter && this.props.mouseEnter ();
+  }
+
+  mouseLeave () {
+    this.setState ({
+      isVisible: false,
+      isFocus: false,
+    });
+    this.props.mouseLeave && this.props.mouseLeave ();
+  }
+
+  click () {
+    this.state.trigger === 'click' &&
+      this.setState ({
+        isVisible: true,
+      });
+    this.props.click && this.props.click ();
   }
 
   render () {
@@ -33,10 +55,21 @@ class ToolTip extends React.Component {
       <span
         className={`tooltip-ff tooltip-ff-${this.state.position} ${this.props.className}`}
       >
-        <span className="content">{this.props.children}</span>
-        <span className={`box box-${this.state.position}`}>
-          {this.state.content}
+        <span
+          className={`content ${this.state.trigger === 'hover' ? 'active' : ''}`}
+          onMouseEnter={this.mouseEnter.bind (this)}
+          onMouseLeave={this.mouseLeave.bind (this)}
+          onClick={this.click.bind (this)}
+        >
+          {this.props.children}
         </span>
+        {this.state.content
+          ? <span
+              className={`box box-${this.state.position} ${this.state.isVisible ? 'visible' : ''}`}
+            >
+              {this.state.content}
+            </span>
+          : null}
       </span>
     );
   }
@@ -57,10 +90,17 @@ ToolTip.propTypes = {
     'bl',
     'br',
   ]),
+  defaultVisible: PropTypes.oneOfType ([PropTypes.bool, PropTypes.string]),
+  trigger: PropTypes.string,
+  mouseEnter: PropTypes.func,
+  mouseLeave: PropTypes.func,
+  click: PropTypes.func,
 };
 
 ToolTip.defaultProps = {
   position: 'right',
+  defaultVisible: false,
+  trigger: 'hover',
 };
 
 export default ToolTip;

@@ -22,15 +22,33 @@ const rowBetweenStyle = {
   justifyContent: 'space-between',
 };
 
+const content = (
+  <ul>
+    <li>{'TL'}</li>
+    <li>{'TL'}</li>
+    <li>{'TL'}</li>
+    <li>{'TL'}</li>
+    <li>{'TL'}</li>
+    <li>{'TL'}</li>
+    <li>{'TL'}</li>
+    <li>{'TL'}</li>
+  </ul>
+);
+
 ReactDOM.render (
   <Fragment>
     <div style={rowAroundStyle}>
-      <ToolTip position={'tl'} content={'测试'}>
+      <ToolTip
+        position={'tl'}
+        content={content}
+        defaultVisible={true}
+        trigger={'click'}
+      >
         <div style={contentStyle}>
           {'TL'}
         </div>
       </ToolTip>
-      <ToolTip position={'top'} content={'测试'}>
+      <ToolTip position={'top'} content={''}>
         <div style={contentStyle}>
           {'TOP'}
         </div>
