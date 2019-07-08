@@ -7,36 +7,20 @@ npm i tooltip-ff
 ## Usage
 
 ```
-import ToolTip from 'tooltip-ff';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-render(){
-  const suggestions = ['foo', 'bar'];
-  const handleSelect = selection => {console.log(selection)};
+import XToolTip from 'tooltip-ff';
 
-  let input;
-  const handleSubmit = () => console.log(input.value);
-
-  return (
-    // without submit button
-    <AutoSuggest
-      suggestions = {suggestions}
-      onSelect = {handleSelect}
-      placeholder = "whatever..."
-    />
-
-    <form onSubmit={handleSubmit}>
-      <AutoSuggest
-        suggestions = {suggestions}
-        onSelect = {()=>{}}
-        placeholder = "whatever..."
-        inputRef = { node => input = node}
-    />
-    </form>
-  )
-}
+ReactDOM.render (
+    <XToolTip position={'right'} content={'测试'}>
+      {'我是测试按钮'}
+    </XToolTip>,
+  document.getElementById ('app')
+);
 
 ```
 
 ## Examples
 
-[Here're some live demos](http://demo-react-tiny-autosuggest.surge.sh)
+[npm tooltip-ff](https://www.npmjs.com/package/tooltip-ff)
