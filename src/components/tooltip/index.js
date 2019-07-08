@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './tooltip.scss';
+import './index.scss';
 
 class ToolTip extends React.Component {
   constructor (props) {

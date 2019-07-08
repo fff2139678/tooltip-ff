@@ -1,13 +1,13 @@
 ## Install
 
 ```
-npm i react-tiny-autosuggest
+npm i tooltip-ff
 ```
 
 ## Usage
 
 ```
-import AutoSuggest from 'react-tiny-autosuggest';
+import ToolTip from 'tooltip-ff';
 
 render(){
   const suggestions = ['foo', 'bar'];
