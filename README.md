@@ -26,7 +26,7 @@ ReactDOM.render (
 | 参数     | 说明                                                                                  | 类型                               | 默认    |
 | -------- | ------------------------------------------------------------------------------------- | ---------------------------------- | ------- |
 | position | 气泡框位置，可选`top`,`tl`,`tr`,`left`,`lt`,`lb`,`right`,`rt`,`rb`,`bottom`,`bl`,`br` | string                             | `right` |
-| content  | 气泡展示内容                                                                          | `string|ReactNode|() => ReactNode` | 无      |
+| content  | 气泡展示内容                                                                          | `string/ReactNode/() => ReactNode` | 无      |
 
 ## npm address
 
