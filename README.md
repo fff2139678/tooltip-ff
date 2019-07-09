@@ -34,7 +34,7 @@ ReactDOM.render (
 | click  | 点击回调                                                                          | `() => void` | 无  |
 
 
-## npm address
+## demo
 ```
 npm install
 
