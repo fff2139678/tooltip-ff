@@ -1,21 +1,75 @@
 @import '../../scss/common';
 @import './color';
-.x-tooltip {
+// 私有变量
+$tip-color: rgba($color: $bg-color, $alpha: 0.647);
+$border-tarns: 3px solid transparent;
+$border-6: 6px solid $tip-color;
+// @mixin 进行声明 多个参数 , 分割
+@mixin before($top, $left) {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: $top;
+    left: $left;
+}
+
+@mixin layout($direct, $aItem) {
+    display: inline-flex;
+    flex-direction: $direct;
+    align-items: $aItem;
+}
+
+.tooltip-ff {
     position: relative;
-    .top {
+    &-top {
+        @include layout(column, center);
+    }
+    &-tl {
+        @include layout(column, flex-start);
+    }
+    &-tr {
+        @include layout(column, flex-end);
+    }
+    &-bottom {
+        @include layout(column-reverse, center);
+    }
+    &-bl {
+        @include layout(column-reverse, flex-start);
+    }
+    &-br {
+        @include layout(column-reverse, flex-end);
+    }
+    &-left {
+        @include layout(row, center);
+    }
+    &-lt {
+        @include layout(row, flex-start);
+    }
+    &-lb {
+        @include layout(row, flex-end);
+    }
+    &-right {
+        @include layout(row-reverse, center);
+    }
+    &-rt {
+        @include layout(row-reverse, flex-start);
+    }
+    &-rb {
+        @include layout(row-reverse, flex-end);
+    }
+    .content {
         cursor: pointer;
         &:hover {
             &+.box {
                 opacity: 1;
             }
         }
-        // margin: 5px;
     }
     .box {
-        position: absolute;
         display: inline-flex;
         width: max-content;
-        background-color: rgba($color: $bg-color, $alpha: 0.647);
+        background-color: $tip-color;
         color: $font-color;
         padding: 0.08rem 0.2rem;
         border-radius: 4px;
@@ -26,68 +80,84 @@
         opacity: 0;
         transition: opacity 1s;
     }
-    .box-top {
-        bottom: calc(100% + 6px);
-        transform: translate(-50%, 0);
-        margin-left: -50%;
+    .box-top,
+    .box-tl,
+    .box-tr {
+        transform: translate(0, calc(-100% - 6px));
+        position: absolute;
         &::before {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 0;
-            border-left: 3px solid transparent;
-            border-right: 3px solid transparent;
-            border-top: 6px solid rgba($color: $bg-color, $alpha: 0.647);
-            top: 100%;
-            left: calc(50% - 3px);
+            border-left: $border-tarns;
+            border-right: $border-tarns;
+            border-top: $border-6;
         }
     }
-    .box-right {
-        transform: translate(0, -50%);
-        top: 50%;
-        margin-left: 6px;
+    .box-top::before {
+        @include before(100%, calc(50% - 3px));
+    }
+    .box-tl::before {
+        @include before(100%, calc(25% - 3px));
+    }
+    .box-tr::before {
+        @include before(100%, calc(75% - 3px));
+    }
+    .box-right,
+    .box-rt,
+    .box-rb {
+        transform: translate(calc(100% + 6px), 0);
+        position: absolute;
         &::before {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 0;
-            border-top: 3px solid transparent;
-            border-bottom: 3px solid transparent;
-            border-right: 6px solid rgba($color: $bg-color, $alpha: 0.647);
-            top: calc(50% - 3px);
-            left: -6px;
+            border-top: $border-tarns;
+            border-bottom: $border-tarns;
+            border-right: $border-6;
         }
     }
-    .box-bottom {
-        top: calc(100% + 6px);
-        transform: translate(-50%, 0);
-        margin-left: -50%;
+    .box-right::before {
+        @include before(calc(50% - 3px), -6px);
+    }
+    .box-rt::before {
+        @include before(calc(25% - 3px), -6px);
+    }
+    .box-rb::before {
+        @include before(calc(75% - 3px), -6px);
+    }
+    .box-bottom,
+    .box-bl,
+    .box-br {
+        transform: translate(0, calc(100% + 6px));
+        position: absolute;
         &::before {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 0;
-            border-left: 3px solid transparent;
-            border-right: 3px solid transparent;
-            border-bottom: 6px solid rgba($color: $bg-color, $alpha: 0.647);
-            top: -6px;
-            left: calc(50% - 3px);
+            border-left: $border-tarns;
+            border-right: $border-tarns;
+            border-bottom: $border-6;
         }
     }
-    .box-left {
-        transform: translate(-100%, -50%);
-        top: 50%;
-        margin-left: calc(-100% - 6px);
+    .box-bottom::before {
+        @include before(-6px, calc(50% - 3px));
+    }
+    .box-bl::before {
+        @include before(-6px, calc(25% - 3px));
+    }
+    .box-br::before {
+        @include before(-6px, calc(75% - 3px));
+    }
+    .box-left,
+    .box-lt,
+    .box-lb {
+        transform: translate(calc(-100% - 6px), 0);
+        position: absolute;
         &::before {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 0;
-            border-top: 3px solid transparent;
-            border-bottom: 3px solid transparent;
-            border-left: 6px solid rgba($color: $bg-color, $alpha: 0.647);
-            left: 100%;
-            top: calc(50% - 3px);
+            border-top: $border-tarns;
+            border-bottom: $border-tarns;
+            border-left: $border-6;
         }
+    }
+    .box-left::before {
+        @include before(calc(50% - 3px), 100%);
+    }
+    .box-lt::before {
+        @include before(calc(25% - 3px), 100%);
+    }
+    .box-lb::before {
+        @include before(calc(75% - 3px), 100%);
     }
 }
