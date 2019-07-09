@@ -33,6 +33,14 @@ ReactDOM.render (
 | mouseLeave  | 隐藏回调                                                                          | `() => void` | 无  |
 | click  | 点击回调                                                                          | `() => void` | 无  |
 
+
+## npm address
+```
+npm install
+
+http://localhost:8080/
+```
+
 ## npm address
 
 [npm tooltip-ff](https://www.npmjs.com/package/tooltip-ff)
